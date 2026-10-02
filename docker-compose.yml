@@ -1,0 +1,20 @@
+services:
+
+  postgres:
+    image: postgres:17
+    container_name: movieflix-postgres
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: movieflix
+      POSTGRES_USER: movieflix
+      POSTGRES_PASSWORD: movieflix
+
+    ports:
+      - "5433:5432"
+
+    volumes:
+      - movieflix-postgres-data:/var/lib/postgresql/data
+
+volumes:
+  movieflix-postgres-data:
